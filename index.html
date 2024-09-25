@@ -1,16 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header>
+        <div class="container">
+            <h1>John Doe</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#cheatsheet">Cheat Sheet</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<html>
-      <h1>
-            This is my website
-      </h1>
-      <body>
-            <h2>About me</h2>
-            <p>
-                  Working on TryHackMe rooms and other cyber security things. 
-            </p>
-            <h2>What I'm working on</h2>
-            <p>
-                  SQLi TryHackMe rooms & practicing Python.
-            </p>
-      </body>
+    <!-- MAIN CONTENT SECTION -->
+    <main>
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>Hi, I'm John Doe, a cybersecurity enthusiast with a focus on penetration testing and network security. Here's a collection of my work.</p>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Projects</h2>
+            <p>Walkthroughs and other personal projects will be displayed here.</p>
+        </section>
+
+        <section id="cheatsheet" class="container">
+            <h2>Penetration Testing Cheat Sheet</h2>
+            <pre>
+nmap -p23 $IP         # Scan a specific port
+hydra -l admin -P password.txt $IP ssh  # Brute-force SSH login
+            </pre>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2024 John Doe | <a href="mailto:john@example.com">Contact Me</a></p>
+    </footer>
+</body>
 </html>
