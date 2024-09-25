@@ -1,0 +1,98 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a; /* Dark gray/black background */
+    color: #e0e0e0; /* Light gray text */
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Container for general layout */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #111; /* Darker black for header */
+    padding: 20px 0;
+    border-bottom: 3px solid #00ff00; /* Neon green border */
+    text-align: center;
+}
+
+header h1 {
+    color: #00ff00; /* Neon green for your name */
+    font-size: 2.5em;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #e0e0e0; /* Light gray links */
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+    color: #00ff00; /* Green hover effect */
+}
+
+/* Main section styling */
+main {
+    margin: 40px 0;
+}
+
+main h2 {
+    font-size: 2em;
+    color: #00ff00; /* Green headings */
+    border-bottom: 2px solid #00ff00; /* Green underlines */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1.2em;
+}
+
+/* Cheat sheet styling */
+pre {
+    background-color: #333;
+    padding: 15px;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #111;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+    border-top: 2px solid #00ff00; /* Green border */
+}
+
+footer a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
