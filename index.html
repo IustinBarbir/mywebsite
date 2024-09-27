@@ -4,49 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cybersecurity Portfolio</title>
+    <title>John Doe | Cybersecurity Enthusiast</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER SECTION -->
+    <!-- TOP NAVIGATION BAR -->
     <header>
-        <div class="container">
-            <h1>John Doe</h1>
+        <div class="nav-container">
+            <h1 class="logo">Iustin Barbir</h1>
             <nav>
-                <ul>
+                <ul class="nav-links">
                     <li><a href="#about">About Me</a></li>
+                    <li><a href="#thm-rooms">THM Rooms</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="cheatsheet.html">Cheat Sheet</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- MAIN CONTENT SECTION -->
-    <main>
-        <section id="about" class="container">
-            <h2>About Me</h2>
-            <p>Hi, I'm John Doe, a cybersecurity enthusiast with a focus on penetration testing and network security. Here's a collection of my work.</p>
-        </section>
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Cybersecurity Portfolio</h1>
+            <p>Exploring the world of penetration testing, vulnerability assessment, and cybersecurity.</p>
+        </div>
+    </section>
 
-        <section id="projects" class="container">
-            <h2>Projects</h2>
-            <p>Walkthroughs and other personal projects will be displayed here.</p>
-        </section>
+    <!-- TERMINAL SECTION -->
+    <section id="terminal-section">
+        <div class="terminal-container">
+            <div class="terminal">
+                <pre id="typed-text"></pre> <!-- Typing will happen here -->
+            </div>
+        </div>
+    </section>
 
-        <section id="cheatsheet" class="container">
-            <h2>Penetration Testing Cheat Sheet</h2>
-            <pre>
-nmap -p23 $IP         # Scan a specific port
-hydra -l admin -P password.txt $IP ssh  # Brute-force SSH login
-            </pre>
-        </section>
-    </main>
-
-    <!-- FOOTER SECTION -->
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2024 John Doe | <a href="mailto:john@example.com">Contact Me</a></p>
+        <p>&copy; 2024 John Doe | All Rights Reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
