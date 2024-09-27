@@ -1,4 +1,4 @@
-/* Reset some default browser styles */
+/* General styling */
 * {
     margin: 0;
     padding: 0;
@@ -6,93 +6,132 @@
 }
 
 body {
-    background-color: #1a1a1a; /* Dark gray/black background */
-    color: #e0e0e0; /* Light gray text */
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #666666, #000000); /* Lighter gradient from gray to black */
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Container for general layout */
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
+/* Terminal section with a solid background */
+#terminal-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1; /* Ensure it's above the gradient */
 }
 
-/* Header styling */
+.terminal-container {
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for the terminal container */
+    border-radius: 8px;
+    padding: 1.2rem;
+    width: 85%;
+    max-width: 900px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Softer shadow */
+    border: none; /* Removed border entirely */
+}
+
+.terminal {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: #00ff00; /* Terminal green text */
+    height: 280px;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.2); /* Almost transparent background for the terminal */
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Thinner, more subtle border */
+}
+
+.blinking-cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: #00ff00; /* Single color for the blinking cursor */
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Hero Section */
+#hero {
+    background: none;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Less shadow for clean look */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #ccc;
+}
+
+/* Navigation Bar */
 header {
-    background-color: #111; /* Darker black for header */
-    padding: 20px 0;
-    border-bottom: 3px solid #00ff00; /* Neon green border */
-    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent navigation bar */
+    z-index: 1000;
+    padding: 1rem 0;
 }
 
-header h1 {
-    color: #00ff00; /* Neon green for your name */
-    font-size: 2.5em;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
 }
 
-header nav ul {
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nav-links {
     list-style: none;
+    display: flex;
 }
 
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
+.nav-links li {
+    margin-left: 2rem;
 }
 
-header nav ul li a {
-    color: #e0e0e0; /* Light gray links */
+.nav-links a {
     text-decoration: none;
-    font-size: 1.2em;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: color 0.3s ease;
 }
 
-header nav ul li a:hover {
-    color: #00ff00; /* Green hover effect */
+.nav-links a:hover {
+    color: #1db954; /* Subtle green hover color */
 }
 
-/* Main section styling */
-main {
-    margin: 40px 0;
-}
-
-main h2 {
-    font-size: 2em;
-    color: #00ff00; /* Green headings */
-    border-bottom: 2px solid #00ff00; /* Green underlines */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-main p {
-    font-size: 1.2em;
-}
-
-/* Cheat sheet styling */
-pre {
-    background-color: #333;
-    padding: 15px;
-    color: #00ff00;
-    font-family: 'Courier New', monospace;
-    font-size: 1em;
-    border-radius: 5px;
-}
-
-/* Footer styling */
+/* Footer */
 footer {
-    background-color: #111;
-    color: #e0e0e0;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 40px;
-    border-top: 2px solid #00ff00; /* Green border */
-}
-
-footer a {
-    color: #00ff00;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    margin-top: auto;
 }
