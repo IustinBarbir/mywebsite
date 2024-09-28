@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #666666, #000000); /* Lighter gradient from gray to black */
+    background: #1f1e1ee3; /* Lighter gradient from gray to black */
     color: #fff;
     min-height: 100vh;
     display: flex;
@@ -16,7 +16,7 @@ body {
     overflow: hidden;
 }
 
-/* Terminal section with a solid background */
+/* Terminal section */
 #terminal-section {
     display: flex;
     justify-content: center;
@@ -24,35 +24,35 @@ body {
     padding: 3rem;
     margin-top: 2rem;
     position: relative;
-    z-index: 1; /* Ensure it's above the gradient */
+    z-index: 1;
 }
 
 .terminal-container {
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background for the terminal container */
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 8px;
     padding: 1.2rem;
     width: 85%;
     max-width: 900px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Softer shadow */
-    border: none; /* Removed border entirely */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border: none;
 }
 
 .terminal {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1rem;
-    color: #00ff00; /* Terminal green text */
+    color: #00ff00;
     height: 280px;
     overflow-y: auto;
     padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.2); /* Almost transparent background for the terminal */
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Thinner, more subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .blinking-cursor {
     display: inline-block;
     width: 10px;
-    background-color: #00ff00; /* Single color for the blinking cursor */
+    background-color: #00ff00;
     animation: blink 1s step-start infinite;
 }
 
@@ -69,12 +69,13 @@ body {
     align-items: center;
     padding: 2rem;
     color: #fff;
+    text-align: center; /* Center text on mobile */
 }
 
 .hero-content h1 {
     font-size: 3rem;
     font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Less shadow for clean look */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-content p {
@@ -88,15 +89,14 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Transparent navigation bar */
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 1000;
     padding: 1rem 0;
 }
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Centered the logo */
     padding: 0 2rem;
 }
 
@@ -106,25 +106,51 @@ header {
     color: #fff;
 }
 
-.nav-links {
-    list-style: none;
+/* Nav Folders (New Section above terminal) */
+.nav-folders {
     display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
-.nav-links li {
-    margin-left: 2rem;
-}
-
-.nav-links a {
+.nav-folder {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 5px;
+    text-align: center;
     text-decoration: none;
     color: #fff;
-    font-size: 1rem;
-    font-weight: 300;
-    transition: color 0.3s ease;
+    font-size: 1.5rem;
+    transition: background-color 0.3s ease;
+    position: relative;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.nav-links a:hover {
-    color: #1db954; /* Subtle green hover color */
+.nav-folder::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 60px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    z-index: 1;
+}
+
+.nav-folder:hover {
+    background-color: #1db954;
+}
+
+.nav-folder:hover::before {
+    background-color: #1db954;
 }
 
 /* Footer */
@@ -134,4 +160,70 @@ footer {
     background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
     margin-top: auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust Hero Section for Mobile */
+    #hero {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Smaller heading */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Smaller paragraph text */
+    }
+
+    /* Resize Folders for Smaller Screens */
+    .nav-folder {
+        width: 150px; /* Smaller width */
+        height: 100px; /* Smaller height */
+        font-size: 1.2rem; /* Smaller font size */
+    }
+
+    .nav-folder::before {
+        width: 50px;
+        height: 18px;
+    }
+
+    /* Terminal Section Adjustments */
+    .terminal-container {
+        width: 95%; /* More width on smaller screens */
+    }
+
+    .terminal {
+        font-size: 0.9rem; /* Slightly smaller text */
+        height: 240px; /* Shorter height for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Even Smaller Devices */
+    .hero-content h1 {
+        font-size: 1.8rem; /* Smaller heading */
+    }
+
+    .hero-content p {
+        font-size: 0.9rem; /* Smaller paragraph text */
+    }
+
+    .nav-folder {
+        width: 120px; /* Smaller width */
+        height: 80px; /* Smaller height */
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    .nav-folder::before {
+        width: 45px;
+        height: 16px;
+    }
+
+    /* Terminal Adjustments for Small Screens */
+    .terminal {
+        font-size: 0.8rem;
+        height: 200px; /* Shorter height for mobile */
+    }
 }
