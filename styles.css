@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #1f1e1ee3; /* Lighter gradient from gray to black */
+    background: #383838; /* Lighter gradient from gray to black */
     color: #fff;
     min-height: 100vh;
     display: flex;
