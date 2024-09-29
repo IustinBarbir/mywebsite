@@ -22,7 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 3rem;
-    margin-top: 2rem;
+    margin-top: -3rem;
     position: relative;
     z-index: 1;
 }
@@ -104,33 +104,53 @@ header {
     font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
+    text-decoration: none; /* Remove underline */
 }
 
-/* Nav Folders (New Section above terminal) */
+.logo:hover {
+    color: #1db954; /* Change color on hover for better UX */
+}
+
+.nav-folders.home {
+    margin-top: -4rem; /* Adjust this value to move higher up (decrease as needed) */
+}
+/* Nav Folders (General Styles) */
 .nav-folders {
     display: flex;
     justify-content: center;
-    gap: 2.5rem;
-    margin-top: 2rem;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 2rem; /* Adjusted gap for smaller folders */
+    margin-top: 6rem; /* Increased to move them lower from the top bar */
+    margin-bottom: 2rem; /* Maintain space from the bottom */
 }
 
+/* Styles for Home Page Navigation Folders */
 .nav-folder {
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 2rem;
+    padding: 2rem; /* Larger padding for home page */
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Font size for home page */
     transition: background-color 0.3s ease;
     position: relative;
-    width: 200px;
-    height: 120px;
+    width: 200px;  /* Larger width for home page */
+    height: 120px; /* Larger height for home page */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+/* Styles for Other Pages Navigation Folders */
+.other-page .nav-folder {
+    padding: 0.5rem;  /* Smaller padding for other pages (half) */
+    font-size: 0.8rem; /* Smaller font size for other pages */
+    width: 100px; /* Smaller width for other pages (half) */
+    height: 60px; /* Smaller height for other pages (half) */
+}
+
+/* The rest of your CSS remains unchanged */
+
 
 .nav-folder::before {
     content: '';
@@ -226,4 +246,121 @@ footer {
         font-size: 0.8rem;
         height: 200px; /* Shorter height for mobile */
     }
+}
+
+/* Contact Section */
+#contact {
+    padding: 10rem 2rem;
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.contact-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.icon-container {
+    text-align: center;
+    margin: 1rem;
+}
+
+.icon-container i {
+    font-size: 3rem; /* Set the size of the icons */
+    color: #1db954; /* Set color for the icons */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.icon-container i:hover {
+    transform: scale(1.1); /* Slight enlarge on hover */
+    color: #4caf50; /* Change color slightly on hover */
+}
+
+.icon-container p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* About Section */
+#about {
+    padding: 10rem 2rem; /* Same padding as Contact */
+    text-align: center; /* Center text */
+}
+
+.about-content {
+    max-width: 800px; /* Limit the width for readability */
+    margin: 0 auto; /* Center align the content */
+    color: #fff;
+}
+
+.about-content h2 {
+    font-size: 2.5rem; /* Same font size as Contact */
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 1.2rem; /* Same font size as Contact */
+    margin-bottom: 2rem;
+}
+
+/* THM Rooms Section */
+#thm-rooms {
+    padding: 10rem 2rem; /* Same padding as Contact */
+    text-align: center; /* Center text */
+}
+
+.rooms-content {
+    max-width: 800px; /* Limit the width for readability */
+    margin: 0 auto; /* Center align the content */
+    color: #fff;
+}
+
+.rooms-content h2 {
+    font-size: 2.5rem; /* Same font size as Contact */
+    margin-bottom: 1rem;
+}
+
+.rooms-content p {
+    font-size: 1.2rem; /* Same font size as Contact */
+    margin-bottom: 2rem;
+}
+
+/* Projects Section */
+#projects {
+    padding: 10rem 2rem; /* Same padding as Contact */
+    text-align: center; /* Center text */
+}
+
+.projects-content {
+    max-width: 800px; /* Limit the width for readability */
+    margin: 0 auto; /* Center align the content */
+    color: #fff;
+}
+
+.projects-content h2 {
+    font-size: 2.5rem; /* Same font size as Contact */
+    margin-bottom: 1rem;
+}
+
+.projects-content p {
+    font-size: 1.2rem; /* Same font size as Contact */
+    margin-bottom: 2rem;
 }
