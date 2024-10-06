@@ -96,8 +96,27 @@ header {
 
 .nav-container {
     display: flex;
-    justify-content: center; /* Centered the logo */
+    justify-content: space-between; /* Space between name and contact info */
+    align-items: center;
     padding: 0 2rem;
+}
+
+/* Styling for the contact info (email and LinkedIn) on the right */
+.contact-info {
+    display: flex;
+    gap: 1.5rem; /* Space between email and LinkedIn */
+}
+
+/* Links for email and LinkedIn */
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.contact-info a:hover {
+    color: #1db954; /* Change color on hover for better UX */
 }
 
 .logo {
@@ -144,9 +163,9 @@ header {
 /* Styles for Other Pages Navigation Folders */
 .other-page .nav-folder {
     padding: 0.5rem;  /* Smaller padding for other pages (half) */
-    font-size: 0.8rem; /* Smaller font size for other pages */
-    width: 100px; /* Smaller width for other pages (half) */
-    height: 60px; /* Smaller height for other pages (half) */
+    font-size: 1rem; /* Smaller font size for other pages */
+    width: 150px; /* Smaller width for other pages (half) */
+    height: 90px; /* Smaller height for other pages (half) */
 }
 
 /* The rest of your CSS remains unchanged */
@@ -363,4 +382,55 @@ footer {
 .projects-content p {
     font-size: 1.2rem; /* Same font size as Contact */
     margin-bottom: 2rem;
+}
+
+/* Skills Section */
+#skills {
+    padding: 2rem 2rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+}
+
+.skills-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.skills-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.skills-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+.skill img {
+    width: 100px; /* Set all icons to 50px width */
+    height: 100px; /* Set all icons to 50px height */
+    transition: transform 0.3s ease;
+    object-fit: contain; /* Ensure the image maintains aspect ratio */
+}
+
+.skill img:hover {
+    transform: scale(1.2); /* Enlarge icon on hover */
+}
+
+.skill p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #ccc;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
