@@ -434,3 +434,117 @@ footer {
     color: #ccc;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
+
+
+/* Scrollable Entire Page */
+html, body {
+    height: 100%; /* Ensure the body takes up the full height of the viewport */
+    overflow-y: auto; /* Allow vertical scrolling on the full page */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+body::-webkit-scrollbar {
+    width: 10px; /* Set the width of the scroll bar */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set color of the scroll bar thumb */
+    border-radius: 10px; /* Make the scroll bar thumb rounded */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Change color when hovered */
+}
+
+/* THM Rooms Section */
+#thm-rooms {
+    padding: 4rem 2rem; /* Adjust padding to bring content higher */
+    text-align: center; /* Center text */
+}
+
+/* Rooms Header */
+.rooms-header {
+    margin-bottom: 3rem; /* Spacing below the header */
+}
+
+.rooms-header h2 {
+    font-size: 2.5rem; /* Adjusted font size */
+    margin-bottom: 1rem;
+}
+
+.rooms-header p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #ccc;
+}
+
+/* Rooms Grid */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+    gap: 2rem; /* Space between cards */
+    padding: 2rem 0;
+    margin-left: 15%; /* Offset from the left */
+    margin-right: 15%; /* Offset from the right */
+}
+
+/* Room Card */
+.room-card {
+    background-color: rgba(0, 0, 0, 0.7); /* Card background */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.room-card:hover {
+    transform: translateY(-5px); /* Hover effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Room Title as Link */
+.room-title {
+    font-size: 1.5rem; /* Title font size */
+    font-weight: 600; /* Title font weight */
+    color: #1db954; /* Title color */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.room-title:hover {
+    color: #4caf50; /* Hover color */
+}
+
+/* Room Description */
+.room-description {
+    font-size: 0.9rem; /* Smaller font size for the description */
+    color: #999; /* Description color */
+    margin-top: 0.5rem; /* Space above description */
+}
+
+/* Room Date */
+.room-date {
+    font-size: 0.8rem; /* Smaller font size for date */
+    color: #888; /* Date color */
+}
+
+/* Pagination Links */
+.pagination {
+    display: flex; /* Flex container for pagination */
+    justify-content: center; /* Center pagination links */
+    margin-top: 2rem; /* Space above pagination */
+}
+
+.pagination a {
+    color: #1db954; /* Pagination link color */
+    text-decoration: none; /* No underline */
+    font-size: 1.2rem; /* Font size for pagination */
+    margin: 0 1rem; /* Space between pagination links */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.pagination a:hover {
+    color: #4caf50; /* Hover color for pagination links */
+}
