@@ -7,14 +7,32 @@
     <title>THM Rooms | Iustin Barbir</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .room { display: none; } /* Initially hide all rooms */
+        .active { display: block; } /* Display active rooms */
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #f0f0f0;
+            text-decoration: none;
+            color: #000;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <!-- Name on the left -->
             <a href="index.html" class="logo">Iustin Barbir</a>
-    
-            <!-- Email and LinkedIn on the right -->
             <div class="contact-info">
                 <a href="mailto:iustin_barbir@yahoo.ro">iustin_barbir@yahoo.ro</a>
                 <a href="https://www.linkedin.com/in/iustin-barbir/" target="_blank">LinkedIn</a>
@@ -22,7 +40,6 @@
         </div>
     </header>
 
-    <!-- Folder navigation for THM Rooms Page -->
     <div class="nav-folders other-page">
         <a href="index.html" class="nav-folder">Home</a>
         <a href="about.html" class="nav-folder">About Me</a>
@@ -35,11 +52,116 @@
         <div class="rooms-content">
             <h2>TryHackMe Rooms</h2>
             <p>Here is a list of TryHackMe rooms I've completed...</p>
+
+            <!-- Room Listings -->
+            <div class="rooms-list">
+                <div class="room"> <!-- Page 1 -->
+                    <a href="thm-rooms/cheese-ctf.html" class="room-title">Cheese CTF</a>
+                    <p class="room-date">Completed on: January 1, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/pyrat.html" class="room-title">Pyrat</a>
+                    <p class="room-date">Completed on: January 2, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/breakme.html" class="room-title">Breakme</a>
+                    <p class="room-date">Completed on: January 3, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/linux-incident-surface.html" class="room-title">Linux Incident Surface</a>
+                    <p class="room-date">Completed on: January 4, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/jwt-security.html" class="room-title">JWT Security</a>
+                    <p class="room-date">Completed on: January 5, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/brains.html" class="room-title">Brains</a>
+                    <p class="room-date">Completed on: January 6, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/multi-factor-authentication.html" class="room-title">Multi-Factor Authentication</a>
+                    <p class="room-date">Completed on: January 7, 2024</p>
+                </div>
+
+                <!-- Page 2 -->
+                <div class="room">
+                    <a href="thm-rooms/forensic-imaging.html" class="room-title">Forensic Imaging</a>
+                    <p class="room-date">Completed on: January 8, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/friday-overtime.html" class="room-title">Friday Overtime</a>
+                    <p class="room-date">Completed on: January 9, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/w1seguy.html" class="room-title">W1seGuy</a>
+                    <p class="room-date">Completed on: January 10, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/mkingdom.html" class="room-title">mKingdom</a>
+                    <p class="room-date">Completed on: January 11, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/xss.html" class="room-title">XSS</a>
+                    <p class="room-date">Completed on: January 12, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/tryhack3m-subscribe.html" class="room-title">TryHack3M: Subscribe</a>
+                    <p class="room-date">Completed on: January 13, 2024</p>
+                </div>
+                <div class="room">
+                    <a href="thm-rooms/linux-file-system-analysis.html" class="room-title">Linux File System Analysis</a>
+                    <p class="room-date">Completed on: January 14, 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination Links -->
+        <div class="pagination">
+            <a href="javascript:void(0);" class="pagination-link" onclick="showPage(1)">1</a>
+            <a href="javascript:void(0);" class="pagination-link" onclick="showPage(2)">2</a>
+            <a href="javascript:void(0);" class="pagination-link" onclick="showPage(3)">3</a>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Iustin Barbir | All Rights Reserved.</p>
     </footer>
+
+    <script>
+        const roomsPerPage = 7;
+        let currentPage = 1;
+
+        function showPage(page) {
+            const rooms = document.querySelectorAll('.room');
+            const totalPages = Math.ceil(rooms.length / roomsPerPage);
+
+            // Hide all rooms
+            rooms.forEach((room, index) => {
+                room.style.display = 'none';
+            });
+
+            // Calculate start and end room for the current page
+            const start = (page - 1) * roomsPerPage;
+            const end = start + roomsPerPage;
+
+            // Show rooms for the current page
+            for (let i = start; i < end && i < rooms.length; i++) {
+                rooms[i].style.display = 'block';
+            }
+
+            // Update pagination active state
+            const paginationLinks = document.querySelectorAll('.pagination-link');
+            paginationLinks.forEach((link, index) => {
+                link.classList.remove('active');
+            });
+            paginationLinks[page - 1].classList.add('active');
+
+            currentPage = page;
+        }
+
+        // Show the first page on initial load
+        showPage(1);
+    </script>
 </body>
 </html>
