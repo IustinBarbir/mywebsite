@@ -15,13 +15,13 @@ let currentLine = 0;
 let currentChar = 0;
 
 // Typing speed (adjust as needed)
-const typingSpeed = 100;  // Speed in milliseconds per character
+const typingSpeed = 50;  // Speed in milliseconds per character
 
 // Function to "type" text in the terminal
 function typeTerminalText() {
     if (currentLine === 0 && currentChar === 0) {
         // On the first line, start typing immediately after the prompt
-        typedTextElement.innerHTML += 'JohnDoe@kali:~$ '; // Add the prompt
+        typedTextElement.innerHTML += 'IustinBarbir@kali:~$ '; // Add the prompt
     }
 
     if (currentLine < terminalText.length) {
