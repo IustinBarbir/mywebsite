@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderland CTF Walkthrough | Iustin Barbir</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Iustin Barbir</a>
+            <div class="contact-info">
+                <a href="mailto:iustin_barbir@yahoo.ro">iustin_barbir@yahoo.ro</a>
+                <a href="https://www.linkedin.com/in/iustin-barbir/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-folders other-page">
+        <a href="../index.html" class="nav-folder">Home</a>
+        <a href="../about.html" class="nav-folder">About Me</a>
+        <a href="../projects.html" class="nav-folder">Projects</a>
+        <a href="../contact.html" class="nav-folder">Contact</a>
+    </div>
+
+    <section id="thm-room-details">
+        <div class="room-details-content">
+            <h2>Wonderland CTF Walkthrough</h2>
+            <p>Date: October 12, 2024</p>
+            <p>Difficulty: Medium</p>
+
+            <h3>Step-by-Step Instructions</h3>
+            <p>Here is a detailed step-by-step explanation of how I completed the Wonderland CTF room...</p>
+
+            <h4>Objective 1: Obtain the flag in user.txt</h4>
+            <p>Start by scanning using <code>nmap</code>:</p>
+            <pre><code>nmap -sC $IP</code></pre>
+            <ul>
+                <li>Ports 22 (SSH) and 80 (HTTP) are open.</li>
+                <li>Visit the website, but there is not much information available.</li>
+            </ul>
+
+            <h4>Step 2: Using Gobuster to discover more directories</h4>
+            <p>Run Gobuster to find hidden directories:</p>
+            <pre><code>gobuster dir -e -u $IP -w /usr/share/wordlists/dirb/common.txt</code></pre>
+            <ul>
+                <li>Results: /img (alice_door.jpg, alice_door.png, white_rabbit_1.jpg)</li>
+                <li>Results: /index</li>
+                <li>Results: /r (with text "Keep Going...")</li>
+            </ul>
+
+            <h4>Step 3: Navigating the directories</h4>
+            <p>Keep using Gobuster on <code>$IP/r</code> to find the following:</p>
+            <ul>
+                <li>/a</li>
+                <li>/r/a/b (forming "RABBIT")</li>
+            </ul>
+
+            <h4>Step 4: Credentials for SSH Access</h4>
+            <p>In the page source, a hidden text appears:</p>
+            <pre><code>&lt;p style="display: none;"&gt;alice:HowDothTheLittleCrocodileImproveHisShiningTail&lt;/p&gt;</code></pre>
+            <p>This seems to be a set of credentials, which work for SSH login.</p>
+
+            <h4>Step 5: Gaining SSH Access</h4>
+            <ul>
+                <li>After SSH login, use <code>ls</code> to check the directory. You will see <code>root.txt</code>, but you cannot access it.</li>
+                <li>At this point, we can't access /home folders.</li>
+                <li>To continue, run <code>cat /root/user.txt</code> (even if we can't access root.txt, we can assume the user.txt flag is inside the root folder).</li>
+                <li>This gets us the <strong>user.txt flag</strong>: thm{}</li>
+            </ul>
+
+            <h4>Step 6: Privilege Escalation</h4>
+            <p>Run <code>sudo -l</code> to see which files can be run with sudo:</p>
+            <ul>
+                <li>The python file can be run as the rabbit user.</li>
+                <li>Check the python script to see if it's vulnerable.</li>
+            </ul>
+
+            <h4>Step 7: Library Hijacking</h4>
+            <p>After some research online, I discovered the concept of <strong>library hijacking</strong>, which helped me escalate privileges to root.</p>
+
+            <h4>Final Step: Obtain the root.txt flag</h4>
+            <p>Once the privilege escalation is successful, run <code>cat /root/root.txt</code> to obtain the final flag.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Iustin Barbir | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
