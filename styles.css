@@ -320,7 +320,7 @@ footer {
 
 /* About Section */
 #about {
-    padding: 10rem 2rem; /* Same padding as Contact */
+    padding: 4rem 2rem; /* Same padding as Contact */
     text-align: center; /* Center text */
 }
 
@@ -338,6 +338,37 @@ footer {
 .about-content p {
     font-size: 1.2rem; /* Same font size as Contact */
     margin-bottom: 2rem;
+}
+
+/* Certifications Section */
+#certifications {
+    padding: 1rem 2rem; /* Same padding as Contact */
+    text-align: center; /* Center text */
+}
+
+.certifications-content {
+    max-width: 800px; /* Limit the width for readability */
+    margin: 0 auto; /* Center align the content */
+    color: #fff;
+}
+
+.certifications-content h2 {
+    font-size: 2.5rem; /* Same font size as Contact */
+    margin-bottom: 1rem;
+}
+
+.certifications-content p {
+    font-size: 1.2rem; /* Same font size as Contact */
+    margin-bottom: 2rem;
+    display: inline-flex; /* Ensure image and text stay in the same line */
+    align-items: center; /* Align image and text */
+    gap: 10px; /* Space between image and text */
+    justify-content: center; /* Center the content */
+}
+
+.certification-logo {
+    width: 80px;  /* Adjust size as needed */
+    height: auto;
 }
 
 /* THM Rooms Section */
@@ -364,29 +395,64 @@ footer {
 
 /* Projects Section */
 #projects {
-    padding: 10rem 2rem; /* Same padding as Contact */
-    text-align: center; /* Center text */
+    padding: 6rem 2rem;
+    text-align: center;
 }
 
 .projects-content {
-    max-width: 800px; /* Limit the width for readability */
-    margin: 0 auto; /* Center align the content */
+    max-width: 800px;
+    margin: 0 auto;
     color: #fff;
 }
 
 .projects-content h2 {
-    font-size: 2.5rem; /* Same font size as Contact */
+    font-size: 2rem; /* Micșorat */
     margin-bottom: 1rem;
 }
 
 .projects-content p {
-    font-size: 1.2rem; /* Same font size as Contact */
+    font-size: 1rem; /* Micșorat */
     margin-bottom: 2rem;
 }
 
+/* Individual project styling */
+.project-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.2rem; /* Ușor redus */
+    border-radius: 8px;
+    margin-bottom: 1.5rem; /* Micșorat */
+    text-align: left;
+}
+
+.project-item h3 {
+    font-size: 1.4rem; /* Micșorat */
+    margin-bottom: 0.5rem;
+}
+
+.project-item p {
+    font-size: 0.9rem; /* Micșorat */
+    margin-bottom: 0.8rem;
+}
+
+.project-link {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.project-link:hover {
+    background-color: #45a049;
+}
+
+
+
 /* Skills Section */
 #skills {
-    padding: 2rem 2rem;
+    padding: 3rem 2rem;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.8); /* Dark background */
 }
@@ -548,3 +614,69 @@ body::-webkit-scrollbar-thumb:hover {
 .pagination a:hover {
     color: #4caf50; /* Hover color for pagination links */
 }
+/* General styling for the walkthrough page */
+#thm-room-details {
+    padding: 5rem 2rem; /* Add padding around the section */
+    color: #fff; /* Text color for readability */
+    background-color: #282c34; /* Background color to match the dark theme */
+}
+
+.room-details-content {
+    max-width: 900px; /* Limit the width for readability */
+    margin: 0 auto; /* Center align the content */
+}
+
+.room-details-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #4caf50; /* Bright color to make the title stand out */
+    text-align: center; /* Center align the main title */
+}
+
+.room-details-content p, .room-details-content li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.room-details-content h3 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    color: #4caf50; /* Slightly lighter orange for subheadings */
+}
+
+.room-details-content ul {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.room-details-content ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+}
+
+.room-details-content pre {
+    background-color: #333; /* Dark background for code blocks */
+    color: #fff; /* White text inside code blocks */
+    padding: 1rem;
+    border-radius: 5px; /* Rounded corners for code blocks */
+    margin: 1rem 0;
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font for code */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.room-details-content code {
+    color: #f4a261; /* Highlight code in blue */
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
