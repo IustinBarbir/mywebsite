@@ -21,7 +21,7 @@ const typingSpeed = 50;  // Speed in milliseconds per character
 function typeTerminalText() {
     if (currentLine === 0 && currentChar === 0) {
         // On the first line, start typing immediately after the prompt
-        typedTextElement.innerHTML += 'IustinBarbir@kali:~$ '; // Add the prompt
+        typedTextElement.innerHTML += 'Iustin@kali:~$ '; // Add the prompt
     }
 
     if (currentLine < terminalText.length) {
@@ -44,7 +44,7 @@ function typeTerminalText() {
         clearInterval(typingInterval);
         
         // Add the final command prompt and show the blinking cursor
-        typedTextElement.innerHTML += '<br>JohnDoe@kali:~$ '; // Add the final command prompt
+        typedTextElement.innerHTML += '<br>Iustin@kali:~$ '; // Add the final command prompt
         typedTextElement.innerHTML += '<span id="cursor" class="blinking-cursor">_</span>'; // Show the blinking cursor after the last prompt
     }
 }
