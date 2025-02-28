@@ -673,6 +673,245 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #383838;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Header - Fixed Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    padding: 0.8rem 1rem;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-info a, .logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover, .logo:hover {
+    color: #1db954;
+}
+
+/* Hero Section */
+#hero {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    background: none;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Terminal Section */
+#terminal-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.terminal-container {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.terminal {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff00;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    height: 250px;
+    overflow-y: auto;
+    font-size: 1rem;
+}
+
+.blinking-cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+    font-weight: bold;
+    color: #00ff00;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Navigation Folders */
+.nav-folders {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 4rem 0;
+}
+
+.nav-folder {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1.5rem;
+    width: 180px;
+    height: 110px;
+    color: white;
+    text-align: center;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+    position: relative;
+}
+
+.nav-folder::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    width: 50px;
+    height: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+.nav-folder:hover {
+    background: #1db954;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+/* Contact Section */
+#contact {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.contact-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.icon-container i {
+    font-size: 2.5rem;
+    color: #1db954;
+    transition: transform 0.3s;
+}
+
+.icon-container i:hover {
+    transform: scale(1.1);
+}
+
+/* About Section */
+#about {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    #hero {
+        height: 50vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .nav-folder {
+        width: 140px;
+        height: 90px;
+        font-size: 1rem;
+    }
+
+    .terminal {
+        font-size: 0.9rem;
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .nav-folder {
+        width: 120px;
+        height: 80px;
+        font-size: 0.9rem;
+    }
+
+    .terminal {
+        font-size: 0.8rem;
+        height: 200px;
+    }
+
+    .contact-content h2 {
+        font-size: 1.8rem;
+    }
+}
 
 
 
