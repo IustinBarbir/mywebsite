@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bounty Hacker CTF Walkthrough | Iustin Barbir</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Iustin Barbir</a>
+            <div class="contact-info">
+                <a href="mailto:iustin_barbir@yahoo.ro">iustin_barbir@yahoo.ro</a>
+                <a href="https://www.linkedin.com/in/iustin-barbir/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-folders other-page">
+        <a href="../index.html" class="nav-folder">Home</a>
+        <a href="../about.html" class="nav-folder">About Me</a>
+        <a href="../projects.html" class="nav-folder">Projects</a>
+        <a href="../contact.html" class="nav-folder">Contact</a>
+    </div>
+
+    <section id="thm-room-details">
+        <div class="room-details-content">
+            <h2>Bounty Hacker CTF Walkthrough</h2>
+            <p>Date: July 19, 2025</p>
+            <p>Difficulty: Easy</p>
+
+            <h3>Step-by-Step Instructions</h3>
+            <p>Here's how I approached the Bounty Hacker CTF room on TryHackMe:</p>
+
+            <h4>Initial Scanning</h4>
+            <p>Start by scanning using <code>nmap</code>:</p>
+            <pre><code>nmap -sC -sV -p- -T4 10.10.95.136</code></pre>
+            <p>While the scan was running, I checked the page source and played around with the website using Burp Suite, but there wasn’t much functionality available.</p>
+
+            <p><strong>Nmap revealed the following open ports:</strong></p>
+            <ul>
+                <li>21/tcp open  ftp     vsftpd 3.0.3</li>
+                <li>22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8</li>
+                <li>80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))</li>
+            </ul>
+
+            <h4>Accessing the FTP Server</h4>
+            <p>Seeing FTP open, I tried logging in as an anonymous user, and it worked:</p>
+            <pre><code>ftp anonymous@10.10.95.136</code></pre>
+            <p>After logging in, I ran <code>dir -R</code> which showed two files: <code>locks.txt</code> and <code>task.txt</code>.</p>
+            <ul>
+                <li><code>get locks.txt</code> worked without issues.</li>
+                <li>For <code>task.txt</code>, I had to turn off passive mode for the download to work.</li>
+            </ul>
+
+            <p>Once downloaded, I ran <code>cat task.txt</code> which answered the first question in the room. Then I ran <code>cat locks.txt</code> — it looked like a password list.</p>
+
+            <h4>Brute Forcing SSH</h4>
+            <p>Knowing SSH was open and the username <code>lin</code> was provided, I used Hydra to brute-force the password:</p>
+            <pre><code>hydra -l lin -P locks.txt ssh://10.10.95.136</code></pre>
+            <p>The command worked and gave me valid SSH credentials.</p>
+
+            <h4>Getting User Access</h4>
+            <p>After logging in with SSH, I found the <code>user.txt</code> flag in the home directory:</p>
+            <pre><code>ssh lin@10.10.95.136
+cat user.txt</code></pre>
+
+            <h4>Privilege Escalation</h4>
+            <p>I tried accessing root directly (<code>cd /root</code>), but didn’t have permissions. So I ran:</p>
+            <pre><code>sudo -l</code></pre>
+            <p>It showed that user <code>lin</code> could run <code>/bin/tar</code> as root.</p>
+
+            <p>After searching online, I found a known <code>tar</code> exploit to gain root access:</p>
+            <pre><code>sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
+whoami</code></pre>
+            <p>This dropped me into a root shell.</p>
+
+            <h4>Getting Root Flag</h4>
+            <p>Finally, I ran:</p>
+            <pre><code>cat /root/root.txt</code></pre>
+            <p>This gave me the last flag and completed the room.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Iustin Barbir | All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
